@@ -7,6 +7,12 @@ on:
 jobs:
   run-bot:
     runs-on: ubuntu-latest
+    # Define environment variables at the job level so all steps can access them
+    env:
+      API_ID: ${{ secrets.API_ID }}
+      API_HASH: ${{ secrets.API_HASH }}
+      BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -23,8 +29,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Telegram Bot
-        env:
-          API_ID: ${{ secrets.API_ID }}
-          API_HASH: ${{ secrets.API_HASH }}
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: python telegram_script.py
