@@ -13,12 +13,13 @@ TARGET_USERNAME = "@You_are_mine_143"
 TARGET_USER_ID = 7883544685
 MY_USER_ID = 7407659746
 
-# Initialize client as a Bot using the token directly
+# Initialize client as a Bot
 client = TelegramClient('bot', API_ID, API_HASH)
 
 
 async def main():
     print("Connecting to Telegram Bot...")
+    # Explicitly pass the bot_token here so it never prompts for input
     await client.start(bot_token=BOT_TOKEN)
     print("Successfully connected as Bot!")
 
