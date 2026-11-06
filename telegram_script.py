@@ -1,9 +1,11 @@
+import os
 import asyncio
 from telethon import TelegramClient
 
 # Configuration details
 API_ID = 37165294
 API_HASH = "49dc7b3bfdf9ed434bcebc205595e27b"
+BOT_TOKEN = "8120093497:AAH1yaIKCRUNo-Ze8ks_yYKLNmd-56vVnls"
 
 # Target Information
 TARGET_GC = "@Perfect_Uss"
@@ -11,17 +13,17 @@ TARGET_USERNAME = "@You_are_mine_143"
 TARGET_USER_ID = 7883544685
 MY_USER_ID = 7407659746
 
-# Initialize client
-client = TelegramClient("my_account", API_ID, API_HASH)
+# Initialize client as a Bot using the token directly
+client = TelegramClient('bot', API_ID, API_HASH)
 
 
 async def main():
-    print("Connecting to Telegram...")
-    await client.start()
-    print("Successfully connected!")
+    print("Connecting to Telegram Bot...")
+    await client.start(bot_token=BOT_TOKEN)
+    print("Successfully connected as Bot!")
 
     me = await client.get_me()
-    print(f"Logged in as: {me.first_name} (ID: {me.id})")
+    print(f"Logged in as Bot: {me.first_name} (ID: {me.id})")
 
     try:
         chat = await client.get_entity(TARGET_GC)
@@ -39,6 +41,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    with client:
-        client.loop.run_until_complete(main())
-
+    asyncio.run(main())
