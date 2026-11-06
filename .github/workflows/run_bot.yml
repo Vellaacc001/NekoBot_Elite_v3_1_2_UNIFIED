@@ -1,4 +1,4 @@
-name: NekoBot Elite Continuous Runner
+name: NekoBot Elite v3.1.2 Continuous Runner
 
 on:
   schedule:
