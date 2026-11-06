@@ -1,0 +1,10 @@
+[safe]
+	directory = /storage/emulated/0/Download/StarCrossedAndroid001/StarCrossedAndroid
+	directory = *
+[user]
+	name = Mental98971
+	email = your-email@example.com
+[http]
+	postBuffer = 524288000
+	lowSpeedLimit = 0
+	lowSpeedTime = 999999
